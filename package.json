@@ -1,0 +1,24 @@
+{
+  "name": "backend-blog-layered",
+  "version": "1.0.0",
+  "description": "It's Simple Api Blogs",
+  "license": "ISC",
+  "author": "wahibdev",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "moongose": "^1.0.0",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
+    "nodemo": "^1.0.0"
+  }
+}
