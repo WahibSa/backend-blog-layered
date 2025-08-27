@@ -30,3 +30,11 @@ export const createUser = async (userData) => {
   const user = await userRepository.createUser(userData);
   return user;
 };
+
+export const findAllUsers = async () => {
+  const users = await userRepository.findAllUsers();
+  if (!users || users.length === 0) {
+    throw new Error("No users found");
+  }
+  return users;
+};

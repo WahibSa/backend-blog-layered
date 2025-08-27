@@ -14,3 +14,7 @@ export const findUserByEmail = async (email) => {
 export const findUserByUsername = async (username) => {
   return User.findOne({ username });
 };
+
+export const findAllUsers = async () => {
+  return User.find();
+};
