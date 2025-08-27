@@ -17,3 +17,21 @@ export const getAllUsers = async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 };
+
+export const getUserById = async (req, res) => {
+  try {
+    const user = await userService.findUserById(req.params.id);
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+export const getUserByUsername = async (req, res) => {
+  try {
+    const user = await userService.findUserByUsername(req.params.username);
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};

@@ -18,3 +18,7 @@ export const findUserByUsername = async (username) => {
 export const findAllUsers = async () => {
   return User.find();
 };
+
+export const findUserById = async (id) => {
+  return User.findById(id);
+};

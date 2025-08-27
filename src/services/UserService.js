@@ -38,3 +38,28 @@ export const findAllUsers = async () => {
   }
   return users;
 };
+
+export const findUserById = async (id) => {
+  // Validate MongoDB ObjectId format
+  if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+    throw new Error("Invalid user ID format");
+  }
+
+  const user = await userRepository.findUserById(id);
+  if (!user) {
+    throw new Error("User not found");
+  }
+  return user;
+};
+
+export const findUserByUsername = async (username) => {
+  if (!username) {
+    throw new Error("Username is required");
+  }
+
+  const user = await userRepository.findUserByUsername(username);
+  if (!user) {
+    throw new Error("User not found");
+  }
+  return user;
+};
