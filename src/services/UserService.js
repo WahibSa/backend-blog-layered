@@ -63,3 +63,15 @@ export const findUserByUsername = async (username) => {
   }
   return user;
 };
+
+export const deleteUserById = async (id) => {
+  if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+    throw new Error("Invalid user ID format");
+  }
+
+  const user = await userRepository.deleteUserById(id);
+  if (!user) {
+    throw new Error("User not found");
+  }
+  return user;
+};

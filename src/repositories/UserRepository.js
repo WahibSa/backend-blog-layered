@@ -22,3 +22,7 @@ export const findAllUsers = async () => {
 export const findUserById = async (id) => {
   return User.findById(id);
 };
+
+export const deleteUserById = async (id) => {
+  return User.findByIdAndDelete(id);
+};
