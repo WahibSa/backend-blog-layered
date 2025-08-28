@@ -75,3 +75,15 @@ export const deleteUserById = async (id) => {
   }
   return user;
 };
+
+export const updateUserById = async (id, updateData) => {
+  if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+    throw new Error("Invalid user ID format");
+  }
+
+  const user = await userRepository.updateUserById(id, updateData);
+  if (!user) {
+    throw new Error("User not found");
+  }
+  return user;
+};

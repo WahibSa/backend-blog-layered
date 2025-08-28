@@ -26,3 +26,7 @@ export const findUserById = async (id) => {
 export const deleteUserById = async (id) => {
   return User.findByIdAndDelete(id);
 };
+
+export const updateUserById = async (id, updateData) => {
+  return User.findByIdAndUpdate(id, updateData, { new: true });
+};
