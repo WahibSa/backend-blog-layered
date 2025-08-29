@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import dbConnection from "../config/db.js";
 import userRoutes from "./routes/UserRoutes.js";
+import followRoutes from "./routes/FollowRoutes.js";
 
 const app = express();
 app.use(express.json());
@@ -13,6 +14,7 @@ const PORT = process.env.PORT || 3000;
 await dbConnection();
 
 app.use("/api/users", userRoutes);
+app.use("/api/follows", followRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
