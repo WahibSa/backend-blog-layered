@@ -24,6 +24,9 @@ export const findFollowing = async (userId) => {
   return Follow.find({ follower_id: userId }).populate("followed");
 };
 
-export const findFollows = async (users) => {
-  return Follow.find(users);
+export const findFollows = async (followerId, followingId) => {
+  return Follow.find({
+    follower_id: followerId,
+    following_id: followingId,
+  });
 };
