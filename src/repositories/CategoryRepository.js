@@ -2,7 +2,8 @@ import Category from "../models/Category.js";
 
 const insertCategory = async (categoryData) => {
   const category = new Category(categoryData);
-  return await Category.save();
+  category.slug = category.title.replace(/\s+/g, "-").toLowerCase();
+  return await category.save();
 };
 
 const getAllCategories = async (skip, limit) => {

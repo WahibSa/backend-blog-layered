@@ -23,9 +23,20 @@ const getCategoryBySlug = async (slug) => {
 };
 
 const updateCategory = async (id, categoryData) => {
+  if (!id) {
+    throw new Error("ID is required");
+  }
+
+  if (!categoryData) {
+    throw new Error("Category data is required");
+  }
+
   return await categoryRepository.updateCategory(id, categoryData);
 };
 
 const deleteCategory = async (id) => {
+  if (!id) {
+    throw new Error("ID is required");
+  }
   return await categoryRepository.deleteCategory(id);
 };

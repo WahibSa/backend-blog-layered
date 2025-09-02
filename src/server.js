@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 import dbConnection from "../config/db.js";
 import userRoutes from "./routes/UserRoutes.js";
 import followRoutes from "./routes/FollowRoutes.js";
+import postRoutes from "./routes/PostRoutes.js";
+import categoryRoutes from "./routes/CategoryRoutes.js";
 
 const app = express();
 app.use(express.json());
@@ -15,6 +17,8 @@ await dbConnection();
 
 app.use("/api/users", userRoutes);
 app.use("/api/follows", followRoutes);
+app.use("/api/categories", categoryRoutes);
+app.use("/api/posts", postRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
